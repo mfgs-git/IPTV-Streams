@@ -1,0 +1,31 @@
+#EXTM3U
+# Premium movie and PPV channel template
+# These are NOT active streams. Replace each commented placeholder with an authorized direct stream URL from your provider.
+# Public M3U playlists do not unlock subscription channels or paid events.
+#
+#EXTINF:-1 group-title="Premium Movies" tvg-name="HBO",HBO
+# STREAM_URL_REQUIRED: HBO
+#EXTINF:-1 group-title="Premium Movies" tvg-name="HBO 2",HBO 2
+# STREAM_URL_REQUIRED: HBO 2
+#EXTINF:-1 group-title="Premium Movies" tvg-name="HBO Signature",HBO Signature
+# STREAM_URL_REQUIRED: HBO Signature
+#EXTINF:-1 group-title="Premium Movies" tvg-name="Cinemax",Cinemax
+# STREAM_URL_REQUIRED: Cinemax
+#EXTINF:-1 group-title="Premium Movies" tvg-name="MoreMAX",MoreMAX
+# STREAM_URL_REQUIRED: MoreMAX
+#EXTINF:-1 group-title="Premium Movies" tvg-name="Showtime",Showtime
+# STREAM_URL_REQUIRED: Showtime
+#EXTINF:-1 group-title="Premium Movies" tvg-name="Showtime 2",Showtime 2
+# STREAM_URL_REQUIRED: Showtime 2
+#EXTINF:-1 group-title="Premium Movies" tvg-name="Starz",Starz
+# STREAM_URL_REQUIRED: Starz
+#EXTINF:-1 group-title="Premium Movies" tvg-name="Starz Encore",Starz Encore
+# STREAM_URL_REQUIRED: Starz Encore
+#EXTINF:-1 group-title="Premium Movies" tvg-name="MGM+",MGM+
+# STREAM_URL_REQUIRED: MGM+
+#EXTINF:-1 group-title="Pay-Per-View" tvg-name="UFC PPV",UFC PPV
+# STREAM_URL_REQUIRED: UFC PPV
+#EXTINF:-1 group-title="Pay-Per-View" tvg-name="Boxing PPV",Boxing PPV
+# STREAM_URL_REQUIRED: Boxing PPV
+#EXTINF:-1 group-title="Pay-Per-View" tvg-name="Special Events PPV",Special Events PPV
+# STREAM_URL_REQUIRED: Special Events PPV
