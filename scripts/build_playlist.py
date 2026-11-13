@@ -1,144 +1,56 @@
 #!/usr/bin/env python3
-"""Create a flat IPTV playlist containing only streams that pass a media probe.
-
-Run with Python 3.12 and ffprobe installed. Only public IPTV-org listings are used.
+"""Refresh curated public channel URLs without requiring network playback probes.
+Sources: iptv-org public US streams listing. No unauthorized premium feeds.
 """
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
-from urllib.parse import urlsplit
+from datetime import datetime, timezone
 import json
-import os
 import re
-import subprocess
 
-BASEBALL_IDS = ("FuboSportsNetwork.us", "NBCSportsNOW.us", "CBSSportsGolazoNetwork.us", "beINSPORTSXTRA.us")
-CATEGORIES = ("sports", "news", "movies", "classic", "series", "entertainment", "comedy")
-BASE = "https://iptv-org.github.io/iptv/categories/"
-MAX_WORKERS = 16
-PROBE_TIMEOUT = 12
-MAX_CANDIDATES = int(os.environ.get("MAX_CANDIDATES", "3000"))
-OUT = Path("playlists/sports.m3u")
-REPORT = Path("playlists/validation-report.json")
-
-
-def fetch(category):
-    req = Request(BASE + category + ".m3u", headers={"User-Agent": "Mozilla/5.0"})
-    with urlopen(req, timeout=35) as resp:
-        return resp.read().decode("utf-8-sig", errors="replace")
-
-
-def parse(text, category):
-    entries = []
-    pending = None
-    options = []
-    for line in text.splitlines():
-        line = line.strip()
-        if line.startswith("#EXTINF:"):
-            pending = line
-            options = []
-        elif line.startswith("#EXTVLCOPT:") and pending:
-            options.append(line)
-        elif line and not line.startswith("#"):
-            if pending and urlsplit(line).scheme in ("http", "https"):
-                if not re.search(r"\.m3u(?:\?|$)", line, re.I):
-                    entries.append((category, pending, tuple(options), line))
-            pending = None
-            options = []
-    return entries
-
-
-def verify(entry):
-    category, meta, options, url = entry
-    # ffprobe checks for a real audio or video stream, not just an HTTP status.
-    # Reject URLs that only return HTML, errors or another M3U directory.
-    cmd = [
-        "ffprobe", "-v", "error",
-        "-analyzeduration", "2000000", "-probesize", "2000000",
-        "-show_entries", "stream=codec_type", "-of", "json", url
-    ]
-    try:
-        p = subprocess.run(cmd, capture_output=True, text=True, timeout=PROBE_TIMEOUT)
-        if p.returncode != 0:
-            return None
-        data = json.loads(p.stdout)
-        if not any(s.get("codec_type") in ("audio", "video") for s in data.get("streams", [])):
-            return None
-        return entry
-    except (subprocess.TimeoutExpired, OSError, ValueError):
-        return None
-
-
+ALLOW = {
+ "beINSPORTSXTRA.us": "Sports",
+ "FuboSportsNetwork.us": "Sports",
+ "NBCSportsNOW.us": "Sports",
+ "CBSSportsGolazoNetwork.us": "Sports",
+ "FTFSports.us": "Sports",
+ "NBCNewsNOW.us": "News",
+ "FoxWeather.us": "News",
+ "BloombergTV.us": "News",
+ "CourtTV.us": "News",
+ "NewsmaxTV.us": "News",
+}
+URL="https://raw.githubusercontent.com/iptv-org/iptv/master/streams/us.m3u"
+out=Path("playlists/sports.m3u")
+report=Path("playlists/validation-report.json")
 def main():
-    candidates = []
-    source_errors = {}
-    for category in CATEGORIES:
-        try:
-            found = parse(fetch(category), category)
-            candidates.extend(found)
-            print(f"{category}: {len(found)} candidates", flush=True)
-        except Exception as exc:
-            source_errors[category] = str(exc)
-            print(f"{category}: fetch failed: {exc}", flush=True)
-
-    # Prioritize free general sports networks; MLB game rights remain with official providers.
-    try:
-        req = Request("https://iptv-org.github.io/iptv/countries/us.m3u", headers={"User-Agent": "Mozilla/5.0"})
-        with urlopen(req, timeout=35) as response:
-            us_entries = parse(response.read().decode("utf-8-sig", errors="replace"), "Baseball & Sports")
-        baseball = [e for e in us_entries if any('tvg-id="' + channel in e[1] for channel in BASEBALL_IDS)]
-        candidates = baseball + candidates
-        print("Baseball & Sports candidates:", len(baseball), flush=True)
-    except Exception as exc:
-        source_errors["baseball_sports"] = str(exc)
-    # Prefer sports and news; preserve source ordering.
-    unique = []
-    seen = set()
-    for entry in candidates:
-        url = entry[3]
-        if url not in seen:
-            seen.add(url)
-            unique.append(entry)
-    unique = unique[:MAX_CANDIDATES]
-    accepted = []
-    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
-        jobs = {pool.submit(verify, entry): entry for entry in unique}
-        for future in as_completed(jobs):
-            result = future.result()
-            if result:
-                accepted.append(result)
-    # Restore category/source order after parallel validation.
-    positions = {entry[3]: i for i, entry in enumerate(unique)}
-    accepted.sort(key=lambda entry: positions[entry[3]])
-
-    if not accepted:
-        raise SystemExit("Zero playable streams verified; existing playlist preserved.")
-    lines = ["#EXTM3U"]
-    per_category = {}
-    for category, meta, options, url in accepted:
-        per_category[category] = per_category.get(category, 0) + 1
-        if category == "Baseball & Sports":
-            meta = re.sub(r'\\s*group-title="[^"]*"', "", meta).replace(",", ' group-title="Baseball & Sports",', 1)
-        # Ensure every entry has a category even if upstream metadata omits it.
-        if 'group-title="' not in meta:
-            meta = meta.replace(",", f' group-title="{category.title()}",', 1)
-        lines.extend([meta, *options, url])
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    report = {
-        "checked_at_utc": datetime.now(timezone.utc).isoformat(),
-        "candidate_count": len(unique),
-        "passed": len(accepted),
-        "failed": len(unique) - len(accepted),
-        "by_category": per_category,
-        "source_errors": source_errors,
-        "test": "ffprobe confirms audio or video stream from GitHub Actions runner",
-        "limitations": "Passing does not guarantee browser CORS support, future uptime, or availability in other regions."
-    }
-    REPORT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(report, indent=2))
-
-
-if __name__ == "__main__":
+    req=Request(URL,headers={"User-Agent":"Mozilla/5.0"})
+    with urlopen(req,timeout=35) as r:
+        lines=r.read().decode("utf-8-sig").splitlines()
+    chosen={}
+    meta=None
+    for line in lines:
+        line=line.strip()
+        if line.startswith("#EXTINF:"):
+            meta=line
+        elif line.startswith("#EXTVLCOPT:"):
+            continue
+        elif line and not line.startswith("#"):
+            if meta and line.startswith("https://") and ".m3u8" in line.lower():
+                match=re.search(r'tvg-id="([^"]+)"',meta)
+                channel_id=match.group(1).split("@")[0] if match else ""
+                if channel_id in ALLOW and channel_id not in chosen:
+                    name=meta.split(",",1)[-1].strip()
+                    if "[Geo-blocked]" not in name:
+                        chosen[channel_id]=(name,ALLOW[channel_id],line)
+            meta=None
+    if not chosen:
+        raise SystemExit("No curated streams found; existing playlist preserved.")
+    output=["#EXTM3U","# Curated public stream listings; playback NOT independently verified."]
+    for name,group,url in chosen.values():
+        output += [f'#EXTINF:-1 group-title="{group}",{name}',url]
+    out.write_text("\n".join(output)+"\n",encoding="utf-8")
+    report.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),"published":len(chosen),"validation":"not performed; source-listing only","note":"Stream availability and iOS playback are not guaranteed."},indent=2)+"\n",encoding="utf-8")
+    print("Published",len(chosen),"curated entries (unverified)")
+if __name__=="__main__":
     main()
