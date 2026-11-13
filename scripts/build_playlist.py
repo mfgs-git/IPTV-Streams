@@ -46,7 +46,7 @@ def main():
             meta=None
     if not chosen:
         raise SystemExit("No curated streams found; existing playlist preserved.")
-    output=["#EXTM3U","# Curated public stream listings; playback NOT independently verified."]
+    output=["#EXTM3U", "\"# SPORT TV PORTUGAL — channel directory, not direct streams", "# SPORT TV+ (free-to-air via Portuguese TV providers) — https://www.sporttv.pt/", "# SPORT TV 1 — subscription required", "# SPORT TV 2 — subscription required", "# SPORT TV 3 — subscription required", "# SPORT TV 4 — subscription required", "# SPORT TV 5 — subscription required", "# SPORT TV 6 — subscription required", "# SPORT TV 7 — subscription required", "# Official viewing and operator login: https://www.sporttv.pt/perguntas-frequentes/", "# No authorized public direct M3U URLs established; these entries are comments, not playable channels.\"", "# Curated public stream listings; playback NOT independently verified."]
     for name,group,url in chosen.values():
         output += [f'#EXTINF:-1 group-title="{group}",{name}',url]
     out.write_text("\n".join(output)+"\n",encoding="utf-8")
