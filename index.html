@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StreamDeck — IPTV-Streams</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+<style>
+:root{color-scheme:dark;--bg:#080c15;--panel:#121b2b;--line:#283448;--text:#f1f5ff;--muted:#9baac0;--accent:#5eead4}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#20304d 0%,var(--bg) 52%);font:15px system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:19px clamp(18px,4vw,55px);border-bottom:1px solid #26304780}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.8px}.brand span{color:var(--accent)}.sub{color:var(--muted);font-size:12px;margin-top:3px}
+button,input,select{font:inherit}button{cursor:pointer;color:inherit;background:#1a273b;border:1px solid #34435b;border-radius:12px;padding:11px 15px}button:hover{border-color:var(--accent)}button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);color:#06221f;border:0;font-weight:700}.wrap{max-width:1600px;margin:auto;padding:22px clamp(18px,4vw,55px) 40px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:2px;font-weight:700;font-size:11px}.title{font-size:clamp(21px,3vw,30px);font-weight:750;margin:5px 0}.status{color:var(--muted);font-size:13px}
+.stage{background:#02050a;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 20px 70px #0008;position:relative}
+video{width:100%;aspect-ratio:16/9;max-height:65vh;background:#000;display:block}
+.overlay{position:absolute;inset:0;display:grid;place-content:center;text-align:center;pointer-events:none;background:radial-gradient(circle,#16273a 0%,#02050a 75%)}
+.overlay .glyph{font-size:60px;color:var(--accent)}.overlay strong{font-size:24px;margin-top:12px}.overlay p{color:var(--muted);max-width:460px;padding:0 18px;line-height:1.6}
+.overlay.hidden{display:none}
+.controls{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:13px 18px;background:#101a29;flex-wrap:wrap}.playing{font-weight:650}.hint{color:var(--muted);font-size:12px}
+.bar{margin-top:22px;border:1px solid var(--line);border-radius:20px;background:#111b2bdc;overflow:hidden}
+.barhead{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap;padding:18px 20px 12px}
+.barhead h2{margin:0;font-size:19px}.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input{color:var(--text);background:#0b1422;border:1px solid #33445c;border-radius:11px;padding:11px 13px;min-width:180px}
+#search{width:min(300px,70vw)}.filters{display:flex;gap:8px;padding:0 20px 14px;overflow:auto}.chip{white-space:nowrap;padding:8px 13px;border-radius:999px}.chip.active{background:#244b49;border-color:var(--accent);color:#bffff4}
+.rail{display:flex;overflow-x:auto;gap:12px;padding:0 20px 20px;scroll-snap-type:x proximity;min-height:160px}.channel{flex:0 0 175px;text-align:left;padding:12px;border-radius:15px;background:#182439;scroll-snap-align:start;min-height:138px}
+.channel.active{border-color:var(--accent);background:#1d3a3b}.logo{height:63px;border-radius:10px;background:#0b1524;display:grid;place-items:center;margin-bottom:10px;overflow:hidden;font-size:24px;font-weight:800;color:#7de9da}.logo img{max-height:50px;max-width:95%;object-fit:contain}
+.chname{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.group{font-size:11px;color:var(--muted);margin-top:4px}
+.empty{color:var(--muted);padding:30px}.load{margin-top:18px;padding:20px;border:1px solid var(--line);border-radius:18px;background:#111b2b}
+.load h2{margin:0 0 8px;font-size:18px}.load p{color:var(--muted);line-height:1.5;font-size:13px}
+.loadrow{display:flex;gap:9px;flex-wrap:wrap}.loadrow input{flex:1;min-width:200px}
+footer{color:var(--muted);font-size:12px;line-height:1.6;padding:18px 0}a{color:#8ff7e6}
+@media(max-width:640px){header{padding:16px 18px}.wrap{padding:16px}.channel{flex-basis:145px}.controls{gap:8px}.barhead{align-items:stretch}.tools{width:100%}#search{flex:1;width:auto;min-width:120px}}
+</style></head>
+<body><header><div><div class="brand">◉ Stream<span>Deck</span></div><div class="sub">Your personal live TV browser</div></div><button id="fullTop">⛶ Full screen</button></header>
+<main class="wrap">
+<div class="topline"><div><div class="eyebrow">Live TV · IPTV</div><div class="title" id="heading">Find something great to watch</div></div><div class="status" id="status" role="status">Load a playlist to get started</div></div>
+<section class="stage" aria-label="Video player"><video id="video" controls playsinline></video><div class="overlay" id="overlay"><div class="glyph">▶</div><strong>Welcome to StreamDeck</strong><p>Choose a channel below to start watching. Import a public M3U playlist to browse more channels.</p></div></section>
+<div class="controls"><div><div class="playing" id="now">Nothing playing</div><div class="hint" id="details">Select a channel from the rail below</div></div><div><button id="favNow" title="Favorite current channel">☆ Favorite</button> <button id="full">⛶ Full screen</button></div></div>
+<section class="bar"><div class="barhead"><h2>Channels <span id="count" class="hint"></span></h2><div class="tools"><input id="search" type="search" placeholder="⌕ Search channels..." aria-label="Search channels"><button id="clear">Clear</button></div></div>
+<div class="filters" id="filters"></div><div class="rail" id="rail" aria-label="Channel selection"></div></section>
+<section class="load"><h2>＋ Add a playlist</h2><p>Paste a publicly accessible M3U URL, or import an M3U file from your device. Browser playback depends on stream format and CORS permissions. Premium channels require an authorized provider.</p>
+<div class="loadrow"><input id="url" aria-label="M3U playlist URL" placeholder="https://example.com/playlist.m3u" value="https://iptv-org.github.io/iptv/categories/sports.m3u"><button class="primary" id="loadUrl">Load URL</button><button id="pick">Import .m3u file</button><input id="file" type="file" accept=".m3u,.m3u8,text/plain" hidden></div>
+<p id="loadStatus" role="status"></p></section>
+<footer>Source directory: <a href="https://github.com/iptv-org/iptv" target="_blank" rel="noopener noreferrer">iptv-org</a>. Streams may be unavailable, geographically restricted, or incompatible with browser playback. This app does not bypass paywalls, DRM, or authentication. Favorites are stored only in this browser.</footer>
+</main>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id),v=$('video');let channels=[],filtered=[],active=null,hls=null,filter='All',favorites=new Set();
+try{favorites=new Set(JSON.parse(localStorage.getItem('streamdeck-favorites')||'[]'))}catch{}
+const setStatus=s=>$('status').textContent=s;
+function parseM3U(text){const out=[];let meta=null;for(const raw of text.split(/\r?\n/)){const line=raw.trim();if(line.startsWith('#EXTINF:')){const title=line.includes(',')?line.slice(line.indexOf(',')+1).trim():'Unnamed';const get=k=>{const m=line.match(new RegExp(k+'="([^"]*)"','i'));return m?m[1]:''};meta={name:get('tvg-name')||title,logo:get('tvg-logo'),group:get('group-title')||'Other'};}else if(line&&!line.startsWith('#')&&meta){try{const u=new URL(line);if(['http:','https:'].includes(u.protocol)){out.push({...meta,url:u.href,id:u.href})}}catch{}meta=null;}}return out}
+function showMessage(msg){$('loadStatus').textContent=msg;setStatus(msg)}
+async function importText(text){const found=parseM3U(text);if(!found.length){showMessage('No playable HTTP(S) entries found in this playlist.');return}const known=new Set(channels.map(c=>c.id));for(const c of found)if(!known.has(c.id)){channels.push(c);known.add(c.id)}showMessage('Loaded '+found.length+' entries. '+channels.length+' unique channels available.');render()}
+async function loadURL(url){try{const u=new URL(url);if(!['https:','http:'].includes(u.protocol))throw Error('Use an HTTP(S) URL');showMessage('Loading playlist…');const ctrl=new AbortController();const timer=setTimeout(()=>ctrl.abort(),18000);let response;try{response=await fetch(u.href,{signal:ctrl.signal})}finally{clearTimeout(timer)}if(!response.ok)throw Error('HTTP '+response.status);await importText(await response.text())}catch(e){showMessage('Could not load playlist: '+e.message+'. This can happen when the server blocks browser requests (CORS). Try importing a local M3U file.')}}
+function category(c){const t=(c.group+' '+c.name).toLowerCase();if(/sport|baseball|mlb|football|soccer|nba|nfl|espn/.test(t))return 'Sports';if(/movie|cinema|film|hbo|starz/.test(t))return 'Movies';if(/news/.test(t))return 'News';return 'Entertainment'}
+function render(){const groups=['All','Favorites','Sports','Movies','News','Entertainment'];$('filters').replaceChildren();for(const g of groups){const b=document.createElement('button');b.className='chip'+(filter===g?' active':'');b.textContent=g;b.onclick=()=>{filter=g;render()};$('filters').append(b)}const q=$('search').value.toLowerCase().trim();filtered=channels.filter(c=>(filter==='All'||(filter==='Favorites'?favorites.has(c.id):category(c)===filter))&&(c.name+' '+c.group).toLowerCase().includes(q));$('count').textContent='('+filtered.length+')';$('rail').replaceChildren();if(!filtered.length){const e=document.createElement('div');e.className='empty';e.textContent=channels.length?'No matching channels.':'Load a playlist to populate the channel bar.';$('rail').append(e);return}const fragment=document.createDocumentFragment();for(const c of filtered.slice(0,600)){const b=document.createElement('button');b.className='channel'+(active?.id===c.id?' active':'');b.title=c.name;b.onclick=()=>play(c);const logo=document.createElement('div');logo.className='logo';if(c.logo){const img=document.createElement('img');img.src=c.logo;img.alt='';img.loading='lazy';img.onerror=()=>{logo.textContent='▶'};logo.append(img)}else logo.textContent='▶';const n=document.createElement('div');n.className='chname';n.textContent=(favorites.has(c.id)?'★ ':'')+c.name;const g=document.createElement('div');g.className='group';g.textContent=c.group;b.append(logo,n,g);fragment.append(b)}$('rail').append(fragment);if(filtered.length>600){const e=document.createElement('div');e.className='empty';e.textContent='Showing first 600 matches. Search to narrow results.';$('rail').append(e)}}
+function stop(){if(hls){hls.destroy();hls=null}v.pause();v.removeAttribute('src');v.load()}
+function play(c){active=c;stop();$('overlay').classList.add('hidden');$('heading').textContent=c.name;$('now').textContent=c.name;$('details').textContent=c.group;$('favNow').textContent=(favorites.has(c.id)?'★':'☆')+' Favorite';setStatus('Connecting…');const url=c.url;const isHls=/\.m3u8(?:[?#]|$)/i.test(url);if(isHls&&window.Hls&&Hls.isSupported()){hls=new Hls({enableWorker:true});hls.loadSource(url);hls.attachMedia(v);hls.on(Hls.Events.MANIFEST_PARSED,()=>{v.play().catch(()=>setStatus('Press play to start'));setStatus('Ready')});hls.on(Hls.Events.ERROR,(_,d)=>{if(d.fatal)setStatus('Playback failed: '+d.details+'. Try another channel.')})}else{v.src=url;v.play().catch(()=>setStatus('Press play, or try another channel'));setStatus(isHls?'Opening stream…':'Opening video…')}render()}
+v.addEventListener('playing',()=>setStatus('● Playing live'));v.addEventListener('error',()=>setStatus('Stream unavailable or unsupported in this browser. Try another channel.'));
+$('search').addEventListener('input',render);$('clear').onclick=()=>{$('search').value='';render()};$('loadUrl').onclick=()=>loadURL($('url').value.trim());$('url').addEventListener('keydown',e=>{if(e.key==='Enter')loadURL($('url').value.trim())});$('pick').onclick=()=>$('file').click();$('file').onchange=async e=>{const f=e.target.files?.[0];if(f)await importText(await f.text())};
+$('favNow').onclick=()=>{if(!active)return;if(favorites.has(active.id))favorites.delete(active.id);else favorites.add(active.id);try{localStorage.setItem('streamdeck-favorites',JSON.stringify([...favorites]))}catch{}$('favNow').textContent=(favorites.has(active.id)?'★':'☆')+' Favorite';render()};
+const full=()=>{if(document.fullscreenElement)document.exitFullscreen();else $('video').requestFullscreen?.().catch(()=>{})};$('full').onclick=full;$('fullTop').onclick=full;
+render();
+})();
+</script></body></html>
