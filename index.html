@@ -29,7 +29,7 @@ input{color:var(--text);background:#0b1422;border:1px solid #33445c;border-radiu
 .loadrow{display:flex;gap:9px;flex-wrap:wrap}.loadrow input{flex:1;min-width:200px}
 footer{color:var(--muted);font-size:12px;line-height:1.6;padding:18px 0}a{color:#8ff7e6}
 @media(max-width:640px){header{padding:16px 18px}.wrap{padding:16px}.channel{flex-basis:145px}.controls{gap:8px}.barhead{align-items:stretch}.tools{width:100%}#search{flex:1;width:auto;min-width:120px}}
-</style></head>
+.premiumgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px;margin-top:15px}.premiumlink{display:block;text-decoration:none;color:var(--text);background:#1a273b;border:1px solid #34435b;border-radius:14px;padding:17px;min-height:100px}.premiumlink:hover,.premiumlink:focus-visible{border-color:var(--accent);outline:0}.premiumlink strong{display:block;font-size:16px;margin-bottom:7px}.premiumlink small{color:var(--muted);line-height:1.5}.premiumtag{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}</style></head>
 <body><header><div><div class="brand">◉ Stream<span>Deck</span></div><div class="sub">Your personal live TV browser</div></div><button id="fullTop">⛶ Full screen</button></header>
 <main class="wrap">
 <div class="topline"><div><div class="eyebrow">Live TV · IPTV</div><div class="title" id="heading">Find something great to watch</div></div><div class="status" id="status" role="status">Load a playlist to get started</div></div>
@@ -37,6 +37,7 @@ footer{color:var(--muted);font-size:12px;line-height:1.6;padding:18px 0}a{color:
 <div class="controls"><div><div class="playing" id="now">Nothing playing</div><div class="hint" id="details">Select a channel from the rail below</div></div><div><button id="favNow" title="Favorite current channel">☆ Favorite</button> <button id="full">⛶ Full screen</button></div></div>
 <section class="bar"><div class="barhead"><h2>Channels <span id="count" class="hint"></span></h2><div class="tools"><input id="search" type="search" placeholder="⌕ Search channels..." aria-label="Search channels"><button id="clear">Clear</button></div></div>
 <div class="filters" id="filters"></div><div class="rail" id="rail" aria-label="Channel selection"></div></section>
+<section class="load" id="premium"><h2>★ Premium Movies & Pay-Per-View</h2><p>Browse official subscription and event providers. Select a service to open its authorized website in a new tab. Premium channels and PPV events are not included in public M3U playlists.</p><div class="premiumgrid" id="premiumgrid"></div></section>
 <section class="load"><h2>＋ Add a playlist</h2><p>Paste a publicly accessible M3U URL, or import an M3U file from your device. Browser playback depends on stream format and CORS permissions. Premium channels require an authorized provider.</p>
 <div class="loadrow"><input id="url" aria-label="M3U playlist URL" placeholder="https://example.com/playlist.m3u" value="https://iptv-org.github.io/iptv/categories/sports.m3u"><button class="primary" id="loadUrl">Load URL</button><button id="pick">Import .m3u file</button><input id="file" type="file" accept=".m3u,.m3u8,text/plain" hidden></div>
 <p id="loadStatus" role="status"></p></section>
@@ -59,6 +60,19 @@ v.addEventListener('playing',()=>setStatus('● Playing live'));v.addEventListen
 $('search').addEventListener('input',render);$('clear').onclick=()=>{$('search').value='';render()};$('loadUrl').onclick=()=>loadURL($('url').value.trim());$('url').addEventListener('keydown',e=>{if(e.key==='Enter')loadURL($('url').value.trim())});$('pick').onclick=()=>$('file').click();$('file').onchange=async e=>{const f=e.target.files?.[0];if(f)await importText(await f.text())};
 $('favNow').onclick=()=>{if(!active)return;if(favorites.has(active.id))favorites.delete(active.id);else favorites.add(active.id);try{localStorage.setItem('streamdeck-favorites',JSON.stringify([...favorites]))}catch{}$('favNow').textContent=(favorites.has(active.id)?'★':'☆')+' Favorite';render()};
 const full=()=>{if(document.fullscreenElement)document.exitFullscreen();else $('video').requestFullscreen?.().catch(()=>{})};$('full').onclick=full;$('fullTop').onclick=full;
+const providers=[
+['Movies','HBO / HBO Max','https://www.hbomax.com/','HBO films, originals and subscription content'],
+['Movies','Cinemax','https://www.cinemax.com/','Cinemax and associated channels via eligible providers'],
+['Movies','Paramount+ / Showtime','https://www.paramountplus.com/','Showtime programming and Paramount+ premium plans'],
+['Movies','Starz','https://www.starz.com/','Starz movies, series and eligible channel packages'],
+['Movies','MGM+','https://www.mgmplus.com/','MGM+ movies and original series'],
+['PPV','ESPN Events','https://www.espn.com/watch/','Sports events; availability and purchase terms vary'],
+['PPV','UFC','https://www.ufc.com/events','Official UFC event listings and viewing details'],
+['PPV','FITE / TrillerTV','https://www.trillertv.com/','Live combat sports and event purchases'],
+['PPV','DAZN','https://www.dazn.com/','Boxing and other sports; some events require extra purchase'],
+['PPV','Prime Video','https://www.amazon.com/gp/video/storefront','Movie rentals and selected event purchases']
+];
+for(const [type,name,url,description] of providers){const a=document.createElement('a');a.className='premiumlink';a.href=url;a.target='_blank';a.rel='noopener noreferrer';const tag=document.createElement('div');tag.className='premiumtag';tag.textContent=type;const title=document.createElement('strong');title.textContent=name;const detail=document.createElement('small');detail.textContent=description;a.append(tag,title,detail);$('premiumgrid').append(a)}
 render();
 })();
 </script></body></html>
