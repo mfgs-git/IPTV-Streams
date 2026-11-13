@@ -1,26 +1,32 @@
-name: Refresh flat IPTV playlist
+name: Refresh validated IPTV playlist
 on:
   workflow_dispatch:
   schedule:
     - cron: '20 5 * * *'
 permissions:
   contents: write
+concurrency:
+  group: validated-playlist
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Build playable flat M3U
+      - name: Install media probe
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Verify streams and build flat M3U
         run: python scripts/build_playlist.py
-      - name: Commit updated playlist
+      - name: Commit verified streams and report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add playlists/sports.m3u
+          git add playlists/sports.m3u playlists/validation-report.json
           if ! git diff --cached --quiet; then
-            git commit -m "Refresh flat IPTV streams"
+            git commit -m "Refresh validated sports, news and movie streams"
             git push
           fi
