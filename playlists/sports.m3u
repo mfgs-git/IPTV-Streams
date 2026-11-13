@@ -1,3 +1,21 @@
 #EXTM3U
-#EXTINF:-1,IPTV-org sports playlist (directory pointer)
+# IPTV-Streams: sports and movie category directory
+# IMPORTANT: These entries are links to M3U playlists, not direct playable video streams.
+# Many IPTV players do not support nested M3U playlists.
+# For playback, import the individual URLs directly in your IPTV player.
+# No unauthorized premium movie or pay-per-view streams are included.
+
+#EXTINF:-1 group-title="Sports Playlists",Sports - public channel directory
 https://iptv-org.github.io/iptv/categories/sports.m3u
+#EXTINF:-1 group-title="Movie Playlists",Movies - public channel directory
+https://iptv-org.github.io/iptv/categories/movies.m3u
+#EXTINF:-1 group-title="Movie Playlists",Classic TV and movies - public directory
+https://iptv-org.github.io/iptv/categories/classic.m3u
+#EXTINF:-1 group-title="Movie Playlists",Series - public channel directory
+https://iptv-org.github.io/iptv/categories/series.m3u
+#EXTINF:-1 group-title="Entertainment Playlists",Entertainment - public channel directory
+https://iptv-org.github.io/iptv/categories/entertainment.m3u
+#EXTINF:-1 group-title="Entertainment Playlists",Comedy - public channel directory
+https://iptv-org.github.io/iptv/categories/comedy.m3u
+#EXTINF:-1 group-title="Regional Playlists",United States - public channel directory
+https://iptv-org.github.io/iptv/countries/us.m3u
