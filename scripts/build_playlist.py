@@ -13,6 +13,7 @@ import os
 import re
 import subprocess
 
+BASEBALL_IDS = ("FuboSportsNetwork.us", "NBCSportsNOW.us", "CBSSportsGolazoNetwork.us", "beINSPORTSXTRA.us")
 CATEGORIES = ("sports", "news", "movies", "classic", "series", "entertainment", "comedy")
 BASE = "https://iptv-org.github.io/iptv/categories/"
 MAX_WORKERS = 16
@@ -81,6 +82,16 @@ def main():
             source_errors[category] = str(exc)
             print(f"{category}: fetch failed: {exc}", flush=True)
 
+    # Prioritize free general sports networks; MLB game rights remain with official providers.
+    try:
+        req = Request("https://iptv-org.github.io/iptv/countries/us.m3u", headers={"User-Agent": "Mozilla/5.0"})
+        with urlopen(req, timeout=35) as response:
+            us_entries = parse(response.read().decode("utf-8-sig", errors="replace"), "Baseball & Sports")
+        baseball = [e for e in us_entries if any('tvg-id="' + channel in e[1] for channel in BASEBALL_IDS)]
+        candidates = baseball + candidates
+        print("Baseball & Sports candidates:", len(baseball), flush=True)
+    except Exception as exc:
+        source_errors["baseball_sports"] = str(exc)
     # Prefer sports and news; preserve source ordering.
     unique = []
     seen = set()
@@ -107,6 +118,8 @@ def main():
     per_category = {}
     for category, meta, options, url in accepted:
         per_category[category] = per_category.get(category, 0) + 1
+        if category == "Baseball & Sports":
+            meta = re.sub(r'\\s*group-title="[^"]*"', "", meta).replace(",", ' group-title="Baseball & Sports",', 1)
         # Ensure every entry has a category even if upstream metadata omits it.
         if 'group-title="' not in meta:
             meta = meta.replace(",", f' group-title="{category.title()}",', 1)
