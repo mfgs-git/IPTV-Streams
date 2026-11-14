@@ -1,0 +1,18 @@
+# Run on a private Docker host. Never commit MLB.TV credentials.
+# Set MLB_USERNAME and MLB_PASSWORD in a local .env file alongside this file.
+services:
+  gameday:
+    image: nicholasodonnell/gameday:latest
+    container_name: gameday
+    environment:
+      MLB_USERNAME: ${MLB_USERNAME:?Set MLB_USERNAME in local .env}
+      MLB_PASSWORD: ${MLB_PASSWORD:?Set MLB_PASSWORD in local .env}
+      TZ: America/New_York
+      APP_URL: http://localhost:3000
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - gameday_config:/app/config
+    restart: unless-stopped
+volumes:
+  gameday_config:
