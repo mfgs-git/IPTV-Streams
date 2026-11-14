@@ -18,8 +18,9 @@ ALLOW = {
  "BloombergTV.us": "News",
  "CourtTV.us": "News",
  "NewsmaxTV.us": "News",
+ "PortoCanal.pt": "Portugal Sports",
 }
-URL = "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/us.m3u"
+URLS = ("https://raw.githubusercontent.com/iptv-org/iptv/master/streams/us.m3u", "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/pt.m3u")
 OUT = Path("playlists/sports.m3u")
 REPORT = Path("playlists/validation-report.json")
 
@@ -28,9 +29,17 @@ def main():
     if not original.startswith("#EXTM3U"):
         raise SystemExit("Existing playlist invalid; preserving it.")
     existing_urls = {x.strip() for x in original.splitlines() if x.strip().startswith(("http://", "https://"))}
-    request = Request(URL, headers={"User-Agent": "Mozilla/5.0"})
-    with urlopen(request, timeout=35) as response:
-        source = response.read().decode("utf-8-sig", errors="replace")
+    sources = []
+    for url in URLS:
+        try:
+            request = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urlopen(request, timeout=35) as response:
+                sources.append(response.read().decode("utf-8-sig", errors="replace"))
+        except Exception as exc:
+            print("Source unavailable:", url, exc)
+    if not sources:
+        raise SystemExit("All sources unavailable; preserving playlist.")
+    source = "\n".join(sources)
     added = []
     pending = None
     for line in source.splitlines():
