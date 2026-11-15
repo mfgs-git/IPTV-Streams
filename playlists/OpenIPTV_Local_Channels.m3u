@@ -3132,8 +3132,7 @@ http://znty.dyndns.org:5010/hls/sicr.m3u8
 #EXTINF:-1 tvg-id="SICReplay.pt@SD" tvg-logo="https://i.imgur.com/fj84mXz.png" group-title="Portugal | Undefined",SIC Replay (1080p)
 https://production-fast-sic.content.okast.tv/fa2e8c4385712f9a7dce4ff2dcebac2e/channels/d9070446-8448-455e-8075-773b1ba12562/d47eae0f-ad77-414a-9a1d-2a6628ba18c3/media_.m3u8
 #EXTINF:-1 tvg-id="SportTV1.pt@SD" tvg-logo="https://i.imgur.com/YWic36u.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" group-title="Portugal | Sports",Sport TV1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-http://znty.dyndns.org:5010/hls/stv1.m3u8
+http://31.204.128.112:8081/live/portugal1/playlist.m3u8
 #EXTINF:-1 tvg-id="SportTV2.pt@SD" tvg-logo="https://i.imgur.com/0jSR6yG.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" group-title="Portugal | Sports",Sport TV2
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 http://znty.dyndns.org:5010/hls/stv2.m3u8
@@ -3186,3 +3185,369 @@ https://raw.githubusercontent.com/thomraider12/canaistvpt/main/m3u8s/tvificcao.m
 https://raw.githubusercontent.com/thomraider12/canaistvpt/main/m3u8s/tvireality.m3u8
 #EXTINF:-1 tvg-id="VPlusTVI.pt@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/pt/e/ef/V%2BTVI_Logo.png" group-title="Portugal | General",V+ TVI (720p)
 https://raw.githubusercontent.com/thomraider12/canaistvpt/main/m3u8s/vmaistvi.m3u8
+
+# Source: https://gist.github.com/elzii/1ed491a5f122531d2b9c064bc87a5b02
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",TELEMUNDO
+http://iphone-streaming.ustream.tv/ustreamVideo/21733416/streams/live/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",UNIVISION
+http://iphone-streaming.ustream.tv/ustreamVideo/21680354/streams/live/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",TVeo Miami
+http://iphone-streaming.ustream.tv/uhls/14034121/streams/live/iphone/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",HBO
+rtmp://www1.iguide.to/iguide playpath=0bf02qe6msgtu4s swfUrl=http://www.iguide.to/player/secure_player_iguide_token.swf pageUrl=http://www.iguide.to/view/1/watch-live-HBO-channel-for-free flashver=WIN/2019,0,0,185 live=1 token=#ed%h0#w18623jsda6523lDGD timeout=10
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Miami TV
+http://k4.usastreams.com:1935/miamitv/smil:miamitv/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Miami Music TV
+http://74.208.152.93/music/stream3/stream.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",WGN
+http://wgntribune-lh.akamaihd.net/i/WGNPrimary_1@304622/index_350_av-p.m3u8?
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",NASA TV
+http://nasatv-lh.akamaihd.net/i/NASA_101@319270/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Weather Channel US
+http://cdnapi.kaltura.com/p/931702/sp/93170200/playManifest/entryId/1_oorxcge2/format/applehttp/protocol/http/uiConfId/28428751/a.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",CARTOON NETWORK
+http://d1hya96e2cm7qi.cloudfront.net/Live/_definst_/sweetbcha1novD28_W_250.sdp/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",HSN
+rtmp://hsn.mpl.miisolutions.net:1935/hsn-live01/_definst_/mp4:420p500kB31 playpath=mp4:420p500kB31
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",HSN 2
+rtmp://hsn.mpl.miisolutions.net:1935/hsn-live01/_definst_/mp4:468p500kB31 playpath=mp4:468p500kB31
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",TWiT Live
+http://iphone-streaming.ustream.tv/uhls/1524/streams/live/iphone/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",NBC GOLF SD
+http://tvegolf-i.Akamaihd.net/hls/live/218225/golfx/1896k/prog.m3u8|X-Forwarded-For=209.239.112.104
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",NBC GOLF 720p
+http://tvegolf-i.Akamaihd.net/hls/live/218225/golfx/2596k/prog.m3u8|X-Forwarded-For=209.239.112.104
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",NBC GOLF 1080p
+http://tvegolf-i.Akamaihd.net/hls/live/218225/golfx/4296k/prog.m3u8|X-Forwarded-For=209.239.112.104
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",PAC-12 Net. (Arizona)
+http://xrxs.net/video/live-p12ariz-4728.m3u8?
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",PAC-12 Net. (Bay Area)
+http://xrxs.net/video/live-p12baya-4728.m3u8?
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",PAC-12 Net. (Los Angeles)
+http://xrxs.net/video/live-p12losa-4728.m3u8?
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",PAC-12 Net. (Moutain)
+http://xrxs.net/video/live-p12moun-4728.m3u8?
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",PAC-12 Net. (Oregon)
+http://xrxs.net/video/live-p12oreg-4728.m3u8?
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",PAC-12 Net. (Washington)
+http://xrxs.net/video/live-p12wash-4728.m3u8?
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",A&E
+http://167.114.102.27/live/fe9X_ilamz8_tLKRQ38sLw/1455736112/bb38d9048b7b91706264169a031f32a4.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",AMC
+http://167.114.102.27/live/Y485s2sKd2Mut7Iq_ZvCmg/1455736138/7c52ed5b8820b7dfd90b5a784bac64b3.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Cartoon Network
+http://167.114.102.27/live/nfUzbPT6JhmfycyCJQqfSg/1455736140/8be5e3f6156a6b2108a2d8b9cc5d5d7c.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Comedy Central
+http://167.114.102.27/live/vIyaoEI13ebIvXN-akGtUg/1455736174/fa894851552e99b1cc146264a8ffaf4b.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Discovery Channel
+http://167.114.102.27/live/NUYr1Cj5jluxXmQ7XxyXtg/1455736192/a490ae75a3ec2acf16c9f592e889eb4c.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",ESPN
+http://167.114.102.27/live/BXd9f9a51RCcTTs3GK2tIg/1455736215/7b0ef842a6a1233a8a86a8533063a1a1.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",History
+http://167.114.102.27/live/-fmFb7Q41tmUnTorinLgOg/1455736245/d4a4950b7b7267417aa0b9733f30b6fe.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",National Geographic Channel
+http://167.114.102.27/live/UUpK4IiDzNKz9F7xZlPZ9A/1455736260/e08dd4627a3cf468a30d8a357956d6f8.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Nickelodeon
+http://167.114.102.27/live/2Dx1Jnk5CCfHDmLqgZLRjQ/1455736269/b11cc9ad84502b27a63fa7a8d813ef6a.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",The CW Network
+http://167.114.102.27/live/OnA2rO37hgyAXGalyv7lNQ/1455736291/d61960e75b1a90a23ebfb02f0bb46678.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",ABC News
+http://abclive.abcnews.com/i/abc_live4@136330/index_800_av-b.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Bloomberg
+http://cdn3.videos.bloomberg.com/btv/us/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",C-Span 2
+http://cspan2-lh.akamaihd.net/i/cspan2_1@304728/index_1000_av-p.m3u8?sd=10&rebase=on
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",C-Span 3
+http://cspan3-lh.akamaihd.net/i/cspan3_1@304729/index_1000_av-p.m3u8?sd=10&rebase=on
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",C-Span
+http://cspan1-lh.akamaihd.net/i/cspan1_1@304727/index_1000_av-p.m3u8?sd=10&rebase=on
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",CBSN
+http://cbsnews-linear.mdialog.com/video_assets/cbsnews.m3u8?api_key=563b80c1ae4ce359830f572d2496a947&iu=/8264/vaw-can/mobile_web/cbsnews_mobile
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",CCTV
+http://ivi.bupt.edu.cn/hls/cctv16.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",CNN Spanish
+http://d1hya96e2cm7qi.cloudfront.net/Live/_definst_/sweetbcha1novD177_W_150.sdp/media_7419.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",CNN
+http://edge1.everyon.tv/etv1sb/pld16/playlist.m3u8
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",Económico TV
+http://213.13.26.41:1935/live/etv_direto/playlist.m3u8
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",Euro News
+http://fr-par-iphone-1.cdn.hexaglobe.net/streaming/euronews_ewns/ipad_pt.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Fox Business
+http://thefxplayer.com/live-tv/fox-business
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Fox News
+http://167.114.102.27/live/TQR9OdpPCnb46xhsgh7_Ew/1455736320/b199b33264504f9191862ce605f6754a.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",KTVU 2
+http://ktvulive-i.akamaihd.net/hls/live/224677/ktvu1/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",MSNBC
+http://iphone-streaming.ustream.tv/ustreamVideo/21957727/streams/live/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",News 12 (Brooklyn)
+rtmp://fs-ace3010000000000.id.cdn.cv.net/vxedge/fs-ace3010000000000/fs-ace3010000000000
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",News 12 (Connecticut)
+rtmp://fs-bbe3010000000000.id.cdn.cv.net/vxedge/fs-bbe3010000000000/fs-bbe3010000000000
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",News 12 (Hudson Valley)
+rtmp://fs-bae3010000000000.id.cdn.cv.net/vxedge/fs-bae3010000000000/fs-bae3010000000000
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",News 12 (Long Island)
+rtmp://fs-b4e3010000000000.id.cdn.cv.net/vxedge/fs-b4e3010000000000/fs-b4e3010000000000
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",News 12 (New Jersey)
+rtmp://fs-b9e3010000000000.id.cdn.cv.net/vxedge/fs-b9e3010000000000/fs-b9e3010000000000
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",News 12 (The Bronx)
+rtmp://fs-b5e3010000000000.id.cdn.cv.net/vxedge/fs-b5e3010000000000/fs-b5e3010000000000
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",News 12 (Westchester)
+rtmp://fs-bce3010000000000.id.cdn.cv.net/vxedge/fs-bce3010000000000/fs-bce3010000000000
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Newsmax TV
+https://manifest.googlevideo.com/api/manifest/hls_variant/expire/1455728072/maudio/1/upn/OEljH6-pZuk/keepalive/yes/sver/3/pmbypass/yes/sparams/gcr%2Chfr%2Cid%2Cip%2Cipbits%2Citag%2Cmaudio%2Cplaylist_type%2Cpmbypass%2Cratebypass%2Csource%2Cexpire/id/6bqvoUMVmCs.1/playlist_type/DVR/hfr/1/signature/C68E2CF4CB7B75A04D8906905EF93F4A0F1A23F3.3F9390FE72D83601C676AB528B668B668AD35EB8/ipbits/0/ratebypass/yes/gcr/us/itag/0/key/yt6/source/yt_live_broadcast/ip/209.85.238.70/fexp/9405265%2C9408490%2C9415516%2C9416126%2C9420452%2C9422432%2C9422596%2C9423661%2C9423662%2C9424335%2C9425731%2C9425790%2C9425945%2C9425973%2C9426910%2C9427858%2C9428063%2C9428644%2C9428946%2C9429173/file/index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",P Tv News
+http://app.pakistanvision.tv:1935/live/8090/player.m3u8
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",RTP
+http://88.157.194.246/live/ramdisk/zrtp1/HLS/zrtp1.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Reuters
+http://37.58.85.156/rlo001/ngrp:rlo001.stream_all/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Smash TV
+http://iphone-streaming.ustream.tv/ustreamVideo/12803100/streams/live/playlist.m3u8
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",TVI 24
+http://video-live.iol.pt:1935/live_tvi24/smil:LIVE_TVI24/chunklist_w272103575_b814000.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Twit Tech News
+http://iphone-streaming.ustream.tv/ustreamVideo/1524/streams/live/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",WFTV ABC Florida
+http://bcoveliveios-i.akamaihd.net/hls/live/207141/268012959001/WFTV_EVENTLIVE1/WFTV_EVENTLIVE1_800.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",i24 News
+http://bcoveliveios-i.akamaihd.net/hls/live/215102/master_english/398/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Amazing Discoveries
+http://162.212.176.83:8080/mystream1.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Animal Planet Live
+http://iphone-streaming.ustream.tv/uhls/17448463/streams/live/iphone/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Animal Planet
+http://167.114.102.27/live/KZEQnRHTJ5Lc0eN3fsQcQw/1455736335/52d1df7fff7b1ba3ac317b98ef2fdb80.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Discovery Channel
+http://167.114.102.27/live/qdugJ5WUWnzO_6PoZnHnsA/1455735520/a490ae75a3ec2acf16c9f592e889eb4c.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Discovery History
+http://top-iptv.zapto.org:8000/live/Aria/Aria/562.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Discovery Theater HD
+http://200.76.77.237/LIVE/H01/CANAL351/PROFILE05.m3u8?-1332%2F1499-20150816T153535.ts=-1
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",History
+http://167.114.102.27/live/gluD_7X-grqrrXiL5QKV2g/1455736348/d4a4950b7b7267417aa0b9733f30b6fe.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Lifestyle US
+http://state.ak.tvwmedia.net:1935/ktoo-live/_definst_/360north/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Nasa TV Education
+http://nasatv-lh.akamaihd.net/i/NASA_102@319272/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Nasa TV Media
+http://nasatv-lh.akamaihd.net/i/NASA_103@319271/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",National Geographic
+http://167.114.102.27/live/NVptKMJBW2Lkn_2oocxFKQ/1455735915/e08dd4627a3cf468a30d8a357956d6f8.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",Santuario De Fatima
+http://213.13.26.11:1935/live/santuario.stream/livestream.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",University of California TV
+rtmp://ucsdtv-wowza.ucsd.edu:1935/live/live_800
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Vincent Van Gough
+http://217.219.143.104/9204/documentry/IMAX%20Van%20Gogh%20Brush%20With%20Genius/IMAX.Van.Gogh.Brush.With.Genius.2009.BluRay.720p.mp4
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Viasat Explorer
+http://195.78.244.219:10000/udp/239.0.3.30:1234
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Viasat History
+http://195.78.244.219:10000/udp/239.0.3.31:1234
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Viasat Nature
+http://195.78.244.219:10000/udp/239.0.3.28:1234
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",9 XM
+http://d2ckk42trw29cy.cloudfront.net/9xmedia/ngrp:9xmusic_all/chunklist_b650000.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",A&E
+http://167.114.102.27/live/lhJQk_GTW2dG1uTdpeYVyQ/1455735252/bb38d9048b7b91706264169a031f32a4.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",ABC HD
+rtmp://play.uktvnow.net/live?wmsAuthSign=c2VydmVyX3RpbWU9Mi8yLzIwMTYgNjoxNTozNCBQTSZoYXNoX3ZhbHVlPUx1cFEyd0xWYkRoemRNRitFVU9qamc9PSZ2YWxpZG1pbnV0ZXM9MjA=/abchd.stream
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",AMC
+http://167.114.102.27/live/WrjI55pn-Mm24P3KG4XG9w/1455735927/7c52ed5b8820b7dfd90b5a784bac64b3.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",AMG
+http://telvuehls_t02027-i.akamaihd.net/hls/live/213119/T02027-amgtv2/playlist_2.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Adult Swim
+http://adultswim-lh.akamaihd.net/i/adultswim_14@318522/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Amazing Facts TV
+http://amazingfacts.live-s.cdn.bitgravity.com/cdn-live/_definst_/amazingfacts/live/feed01/chunklist_w1921345467.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Bollywood Masala
+http://d1hya96e2cm7qi.cloudfront.net/Live/_definst_/sweetbcha1novD191_W_350.sdp/chunklist.m3u8?time%3D1451081767404
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",E! Entertainment Latino
+http://31.220.40.118/LiveEdge/EentertaimentSD/playlist.m3u8?token=f1ea518b512761e8a8f6b7b9bce34111
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",FOX HD
+rtmp://play.uktvnow.net/live?wmsAuthSign=c2VydmVyX3RpbWU9Mi8yLzIwMTYgNjoyODo1OCBQTSZoYXNoX3ZhbHVlPU4raGN6dHJ1VFN2RmtQT3F1bkNZRlE9PSZ2YWxpZG1pbnV0ZXM9MjA=/foxhd.stream
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",FOX
+http://167.114.102.27/live/yh_JdkI8-jHnbWO2tlLGdA/1455735545/1cbdb8043b37c7c9ca83582f9218c8b4.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",FX
+http://167.114.102.27/live/ySPK7vkDUZAsr2QjQpLfkA/1455736391/b8b5089c70ae62534970e2d8aa67e96d.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Global BC
+https://glblvestu-f.akamaihd.net/i/glblvPSTu_1@80128/master.m3u8?__b__=900&hdnea=ip=99.18.68.202~st=1434307348~exp=1434307948~acl=/i/*~id=5a91003f-0e87-4f31-b475-5beb4de69407~hmac=8011c2346009544656a3195d1e9e03e511efc6523dab9644debf3692f630fe77
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",IGN1
+http://videochannel.ign.com/stitcher/playlist_1080.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",MBC 2
+http://63.237.48.23/ios/MBC2/MBC2.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",MBC 4
+http://63.237.48.23/ios/MBC_4/MBC_4.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Roswell TV
+http://veetle.com/index.php/hls/streamMbrFast/51c231b588279_/stream.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Spike TV
+http://167.114.102.27/live/kSGzub-OLTWvMbZRwwUm8Q/1455735573/a01d4a2d79052d6b1c2c63bf2d284202.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",TV84
+http://soundview.viddillions.com/soundviewlive/smil:stream0001.smil/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Telemundo
+https://video05-lax.streamup.com/app/telemundox2chivas_69s-stream/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Toonami Aftermath
+http://iphone-streaming.ustream.tv/uhls/19964352/streams/live/iphone/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Univision
+https://video05-lax.streamup.com/app/univision2chivas_69s-stream/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Zee TV HD
+http://zeeapp-lh.akamaihd.net/i/zeetvuk_1@140491/index_864_av-p.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Adult Swim
+http://adultswim-lh.akamaihd.net/i/adultswim_14@318522/index_high_av-b.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Cartoon Network
+http://167.114.102.27/live/8CEW6BUU_T9IW-ycfXv7-A/1455735580/8be5e3f6156a6b2108a2d8b9cc5d5d7c.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Comedy Central
+http://167.114.102.27/live/fd6Yl4Ta63DX8VbdHXFlOA/1455735959/fa894851552e99b1cc146264a8ffaf4b.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Daystar
+http://bcoveliveios-i.akamaihd.net/hls/live/203127/1539097700001/master_360p.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Disney Jr
+http://top-iptv.zapto.org:8000/live/Aria/Aria/558.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",FASHION TV
+http://edgeb.streaming.sk/fashiontv/fashiontv.stream/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Family Friendly Entertainment
+http://54.225.64.228:1935/live/roku1/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Hope International Channel
+http://bcliveuniv-lh.akamaihd.net/i/HopeInternational_1@193092/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Nickelodeon
+http://167.114.102.27/live/ZbQUAzeCTiZ3K7dGIYIBqg/1455735298/b11cc9ad84502b27a63fa7a8d813ef6a.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",RTP 1
+http://rtp-pull-live.hls.adaptive.level3.net/liverepeater/smil:rtp1.smil/playlist.m3u8
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",RTP 2
+http://rtp-pull-live.hls.adaptive.level3.net/liverepeater/smil:rtp2.smil/playlist.m3u8
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",RTP Açores
+http://rtp-pull-live.hls.adaptive.level3.net/liverepeater/smil:rtpacores.smil/playlist.m3u8
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",RTP INTERNACIONAL
+http://rtp-pull-live.hls.adaptive.level3.net/liverepeater/smil:rtpi.smil/playlist.m3u8
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",RTP MADEIRA
+http://rtp-pull-live.hls.adaptive.level3.net/liverepeater/smil:rtpmadeira.smil/playlist.m3u8
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",RTP Memória
+http://rtp-pull-live.hls.adaptive.level3.net/liverepeater/smil:rtpmem.smil/playlist.m3u8
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",RTP África
+http://rtp-pull-live.hls.adaptive.level3.net/liverepeater/smil:rtpafrica.smil/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Revelation TV
+http://llnw.live.simplestream.com/coder5/coder.channels.channel11/hls/3/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Salaa TV
+http://lm.photros.com/3ph2a.isml/Manifest%28format=m3u8-aapl%29.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Smile of a Child
+http://acaooyalahd2-lh.akamaihd.net/i/TBN04_delivery@186242/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Spacetoon
+rtmp://$OPT:rtmp-raw=rtmp://www.arabic-toons.com/animetv playpath=spacetoon?code=abcdefgh swfUrl=http://www.arabic-toons.com/flowplayer-3.2.7.swf live=1 pageUrl=http://www.arabic-toons.com/
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Spike Tv
+http://167.114.102.27/live/OaAREYg3eRU5q5XP2fT6AQ/1455735578/a01d4a2d79052d6b1c2c63bf2d284202.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="PT" group-title="PT - Gist",TVi
+http://video-live.iol.pt:1935/live_tvi/smil:LIVE_TVI/playlist.m3u8?Grupo_UP_e_DOWN
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",The CW Network
+http://167.114.102.27/live/zZbxs_opJB_95TjpiLJyTw/1455735605/d61960e75b1a90a23ebfb02f0bb46678.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",USA Network
+http://167.114.102.27/live/QJeEFC3pFUxThNwCt2Cb3A/1455735958/6e41f30f946d9327c3322a05250735a7.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Beto TV
+http://content.jwplatform.com/manifests/vM7nH0Kl.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",BYU TV
+http://byuhd2-lh.akamaihd.net/i/byutvhd2_live@103136/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Florida Ch
+http://webcasting.thefloridachannel.org/live/tvweb1/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",HSN 2
+http://hsn.mpl.miisolutions.net:1935/hsn-live01/_definst_/mp4:468p500kB31/mp4:468p500kB3.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",HSN
+http://hsn.mpl.miisolutions.net:1935/hsn-live01/_definst_/mp4:420p500kB31/mp4:420p500kB31.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Miami TV
+http://k4.usastreams.com:1935/miamitv/miamitv/chunklist_w128908539.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Trinity Broadcasting Network
+http://acaooyalahd2-lh.akamaihd.net/i/TBN01_delivery@186239/index_2528_av-p.m3u8?sd=10&amp;rebase=on
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",TSC
+http://tscstreaming-lh.akamaihd.net/i/TSCLiveStreaming_1@91031/index_3_av-p.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",World Fashion TV
+http://btv-net.mediacdn.ru/TVB7/wfhdeu/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Bein Movies 1 HD
+rtmp://149.100.11.163:8080/udp/225.170.45.1:1234
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",De Pelicula
+http://iphone-streaming.ustream.tv/uhls/18654330/streams/live/iphone/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Fx
+http://167.114.102.27/live/ctk9eh_gFXRjPEoAJZPnsA/1455735990/b8b5089c70ae62534970e2d8aa67e96d.m3u8|User-Agent=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F47.0.2526.106%20Safari%2F537.36
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",HBO
+http://yottzin.esy.es/st.php?IDE=385&user=conrado&pass=5353&f=.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",1HD
+http://spb1.peers.tv/streaming/firstmuz/16/hd/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",AKA Hip Hop
+http://rrr.sz.xlcdn.com/?account=AATW&file=akanew&type=live&service=wowza&protocol=http&output=playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Amsterdam Dance Event 2015
+https://geo-live.beatport.com/streams/nbacb7zgivah/amsterdam/1444817891/1050.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Capital TV
+http://ooyalahd2-f.akamaihd.net/i/globalradio01_delivery@156521/index_656_av-p.m3u8?sd=10&rebase=on
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Chilled
+http://rrr.sz.xlcdn.com/?account=AATW&file=CHIL_1BR&type=live&service=wowza&protocol=http&output=playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",DJING Animation HD
+http://www.djing.com/tv/a-05.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",DJING Classic HD
+http://www.djing.com/tv/i-05.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",DJING Dancefloor HD
+http://www.djing.com/tv/d-05.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",DJING Hot Hot Hot HD
+http://www.djing.com/tv/hothothot.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",DJING Underground HD
+http://www.djing.com/tv/u-05.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",FLOW RAP AND R&B NONSTOP
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch2/appleman.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",HEART TV
+http://ooyalahd2-f.akamaihd.net/i/globalradio02_delivery@156522/master.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Heavy Metal Television
+http://70.166.98.130:1935/hmtv/myStream/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",HitTV
+rtmp://tst.es.flash.glb.ipercast.net/tst.es-live/live
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Kiss TV
+http://tst.es.flash.glb.ipercast.net/tst.es-live/live/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",M2O Music
+http://m2otv-lh.akamaihd.net/i/m2oTv_1@186074/index_600_av-b.m3u8?sd=10&rebase=on
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Monte Carlo TV
+http://fms.105.net:1935/live/rmc1/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",My JAM TV
+http://108.61.159.243:1935/XStreamEngine-243/smil:MyJamTV.smil/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",NASHVILLE THE BEST COUNTRY 24/7
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch3/appleman.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Now Music
+http://rrr.sz.xlcdn.com/?account=AATW&file=nowmusic&type=live&service=wowza&protocol=http&output=playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Planet POP
+http://rrr.sz.xlcdn.com/?account=AATW&file=ppop&type=live&service=wowza&protocol=http&output=playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Real Hip Hop Network
+http://rhn.tulix.tv/live/Stream1/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Real Jamaican Television
+http://univ-i.akamaihd.net/hls/live/222631/group1/playlist.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Rougetv
+http://rtmp.infomaniak.ch/livecast/rougetv/hasbahca.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Urban TV
+http://82.76.249.77:80/utvedge/utvlive/index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 1 HD
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch1/06/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 10
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch1/04/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 11
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch2/04/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 12
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch3/04/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 13
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch1/05/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 14
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch2/05/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 15
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch3/05/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 17
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch2/06/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 18
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch3/06/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 4
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch1/02/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 5
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch2/02/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 6
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch3/02/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 7
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch1/03/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 8
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch2/03/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",VEVO 9
+http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch3/03/prog_index.m3u8
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",CBS HD
+https://www.internet-radio.com/servers/tools/playlistgenerator/?u=http://uplink.duplexfx.com:8046/listen.pls&t=.m3u
+#EXTINF:-1 tvg-country="US" group-title="US - Gist",Fm Cafe Channel
+http://stream.north.kz:8000/16bitcafe
