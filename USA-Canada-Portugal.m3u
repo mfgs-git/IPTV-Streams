@@ -3724,3 +3724,13 @@ https://fl1002.bozztv.com/gf-zarintv/index.m3u8
 #EXTINF:-1 tvg-id="ZoomNews.us@SD" tvg-logo="https://t4.ftcdn.net/jpg/03/88/22/21/360_F_388222175_D6PTsMoUyegpPJ63zvkecPsZAttc95mD.jpg" http-referrer="https://zoomnews.info/" group-title="United States",Zoom News (720p)
 #EXTVLCOPT:http-referrer=https://zoomnews.info/
 https://live.zoomnews.info/live/Zoom_playlist.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/82KaH0O.jpg" group-title="Portugal",SPORT TV 1 (720p)
+http://77.83.117.60:8888/02_SPORTTV_1_720p/chunklist.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/82KaH0O.jpg" group-title="Portugal",SPORT TV 2 (720p)
+http://77.83.117.60:8888/02_SPORTTV_2_720p/chunklist.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/82KaH0O.jpg" group-title="Portugal",SPORT TV 3 (720p)
+http://77.83.117.60:8888/02_SPORTTV_3_720p/chunklist.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/82KaH0O.jpg" group-title="Portugal",SPORT TV 4 (720p)
+http://77.83.117.60:8888/02_SPORTTV_4_720p/chunklist.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/82KaH0O.jpg" group-title="Portugal",SPORT TV 5 (720p)
+http://77.83.117.60:8888/02_SPORTTV_5_720p/chunklist.m3u8
